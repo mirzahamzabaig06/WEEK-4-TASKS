@@ -1,0 +1,22 @@
+//Task 2 (CSV) - Calculate Average Price
+public class AveragePrice {
+public static void main(String[] args) {
+String data[] = {
+"Product,Price",
+"Laptop,120000.00",
+"Mouse,2500.00",
+"Keyboard,7500.00",
+"Monitor,25000.00"
+};
+double total = 0;
+int count = 0;
+for (int i = 1; i < data.length; i++) {
+String parts[] = data[i].split(",");
+total = total + Double.parseDouble(parts[1]);
+count++;
+}
+double avg = total / count;
+System.out.println("Average Price: " + avg + " PKR");
+System.out.println("Number of Products: " + count);
+}
+}
