@@ -1,0 +1,31 @@
+//Task 1 (CSV) - Filter Students with GPA >= 3.5
+import java.io.*;
+public class FilterStudents {
+public static void main(String[] args) throws Exception {
+String data[] = {
+"Name,Age,Grade,GPA",
+"Alice,20,A,3.8",
+"Bob,21,B,3.2",
+"Charlie,19,A,3.9",
+"Diana,22,B,3.5",
+"Eve,20,C,2.8"
+};
+FileWriter fw = new FileWriter("honor_students.csv");
+fw.write(data[0] + "\n");
+for (int i = 1; i < data.length; i++) {
+String parts[] = data[i].split(",");
+double gpa = Double.parseDouble(parts[3]);
+if (gpa >= 3.5) {
+fw.write(data[i] + "\n");
+}
+}
+fw.close();
+System.out.println("honor_students.csv created!");
+BufferedReader br = new BufferedReader(new FileReader("honor_students.csv"));
+String line;
+while ((line = br.readLine()) != null) {
+System.out.println(line);
+}
+br.close();
+}
+}
